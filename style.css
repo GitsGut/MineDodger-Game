@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 3em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#game-status {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(6, 50px); /* 6 columns */
+    grid-template-rows: repeat(5, 50px);    /* 5 rows */
+    gap: 5px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: #61dafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #282c34;
+    transition: background-color 0.3s ease;
+}
+
+.cell.clicked {
+    background-color: #a8dadc;
+    cursor: default;
+    animation: pop 0.3s ease;
+}
+
+.cell.mine {
+    background-color: #e63946;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+#reset-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reset-btn:hover {
+    background-color: #1e3c72;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
